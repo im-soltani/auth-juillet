@@ -24,7 +24,7 @@ const loginRules=()=>[
 const validator=(req,res,next)=>{
     const errors=validationResult(req)
 if(!errors.isEmpty()){
-    return res.send({errors:errors.array().map((el)=>({
+    return res.status(400).send({errors:errors.array().map((el)=>({
         msg:el.msg
     }))})
 }
